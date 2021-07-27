@@ -66,6 +66,7 @@ app.post("/api/addAnimal", function(req, res) {
   // This works because of our body parsing middleware
   var newAnimal = req.body;
   animals.push(newAnimal);
+  res.json(newAnimal);
 
 });
  
@@ -98,7 +99,7 @@ app.get("/api/getAnimal/:animal", function(req, res) {
   var found; 
   for (var i = 0; i < animals.length; i++) {
     console.log(animals[i].animalType);
-    if (chosen === animals[i].routeName) {
+    if (chosen === animals[i].animalType) {
       found = animals[i]
     }
   }
